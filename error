@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lin_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dashboard"
+    android:orientation="vertical"
+    android:padding="@dimen/margin10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/margin10"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_notification"
+                android:layout_width="@dimen/img_main_size"
+                android:layout_height="@dimen/img_main_size"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_notification" />
+
+            <TextView
+                android:id="@+id/txt_notification_count"
+                android:layout_width="@dimen/txt_notification_number_size"
+                android:layout_height="@dimen/txt_notification_number_size"
+                android:layout_alignEnd="@+id/img_notification"
+                android:background="@drawable/ic_blue_circle"
+                android:gravity="center_horizontal|center_vertical"
+                android:textAlignment="gravity"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_small"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_menu"
+            android:layout_width="@dimen/img_main_size"
+            android:layout_height="@dimen/img_main_size"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/margin10"
+            android:src="@drawable/ic_menu" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rel_wave"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/margin10"
+            android:layout_weight="0"
+            android:visibility="gone">
+
+            <com.oioo.android.view.customcontrolls.DefaultTextView
+                android:id="@+id/txt_status"
+                style="@style/DefaultDarkTextView"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textSize="@dimen/font_large_plus" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/txt_status"
+                android:layout_marginTop="@dimen/margin20">
+
+                <include layout="@layout/layout_g_circle_wave" />
+
+                <include layout="@layout/layout_progress" />
+            </RelativeLayout>
+
+            <com.oioo.android.view.customcontrolls.ClickableViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/txt_status"
+                android:layout_marginBottom="@dimen/margin10"
+                android:background="@android:color/transparent"
+                android:overScrollMode="never" />
+
+<!--            <android.support.design.widget.TabLayout-->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                app:tabBackground="@drawable/tab_selector"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp"
+                app:tabPaddingEnd="@dimen/margin7"
+                app:tabPaddingStart="@dimen/margin7" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_place_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:weightSum="0">
+
+            <com.oioo.android.view.customcontrolls.DefaultTextView
+                android:id="@+id/txt_quick_order"
+                style="@style/TextViewLikeCircleStyle"
+                android:layout_width="@dimen/img_main_page_size"
+                android:layout_height="@dimen/img_main_page_size"
+                android:layout_marginBottom="@dimen/margin10"
+                android:background="@drawable/ic_quik_order"
+                android:gravity="bottom|center_horizontal"
+                android:padding="@dimen/margin10"
+                android:text="@string/quick_order"
+                android:textSize="@dimen/font_medium" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:weightSum="1">
+
+                <com.oioo.android.view.customcontrolls.DefaultTextView
+                    android:id="@+id/txt_quick_order_h"
+                    style="@style/TextViewLikeCircleStyle"
+                    android:layout_width="@dimen/img_main_page_size"
+                    android:layout_height="@dimen/img_main_page_size"
+                    android:layout_marginBottom="@dimen/margin10"
+                    android:background="@drawable/ic_quik_order"
+                    android:gravity="bottom|center_horizontal"
+                    android:padding="@dimen/margin10"
+                    android:visibility="gone"
+                    android:text="@string/quick_order"
+                    android:textSize="@dimen/font_medium" />
+
+                <com.oioo.android.view.customcontrolls.DefaultTextView
+                    android:id="@+id/txt_place_order"
+                    style="@style/TextViewLikeCircleStyle"
+                    android:layout_width="@dimen/img_main_page_size"
+                    android:layout_height="@dimen/img_main_page_size"
+                    android:layout_marginStart="@dimen/margin15"
+                    android:background="@drawable/ic_place_order"
+                    android:gravity="bottom|center_horizontal"
+                    android:padding="@dimen/margin5"
+                    android:text="@string/place_an_order"
+                    android:textSize="@dimen/font_medium" />
+
+                <com.oioo.android.view.customcontrolls.DefaultTextView
+                    android:id="@+id/img_record"
+                    style="@style/TextViewLikeCircleStyle"
+                    android:layout_width="@dimen/img_main_page_size"
+                    android:layout_height="@dimen/img_main_page_size"
+                    android:layout_marginStart="@dimen/margin15"
+                    android:background="@drawable/ic_record_order"
+                    android:gravity="bottom|center_horizontal"
+                    android:padding="@dimen/margin8"
+                    android:text="@string/record_your_order"
+                    android:textSize="@dimen/font_medium" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+        </LinearLayout>
+
+
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/fab"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="end|bottom"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:translationZ="2dp"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:src="@drawable/ic_record_order" />-->
+
+
+    </LinearLayout>
+</LinearLayout>
